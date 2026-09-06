@@ -3030,3 +3030,283 @@ footer {
     }
 
 }
+
+
+/* =========================================================
+   RESPONSIVE UPDATE + SPORTS MATERIAL / SUPPLEMENTS SECTION
+========================================================= */
+.mobile-menu-btn { display:none; border:0; background:transparent; width:46px; height:46px; padding:9px; cursor:pointer; border-radius:8px; }
+.mobile-menu-btn span { display:block; width:26px; height:3px; margin:5px auto; background:#121212; border-radius:10px; transition:.25s ease; }
+.mobile-menu-btn.active span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+.mobile-menu-btn.active span:nth-child(2){ opacity:0; }
+.mobile-menu-btn.active span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+.sports-store-section { padding:42px 0; background:linear-gradient(135deg,#121212,#242424 60%,#3a0b08); color:#fff; }
+.sports-store-container { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:28px; }
+.sports-store-icon { width:82px; height:82px; border-radius:18px; display:grid; place-items:center; font-size:34px; color:#fff; background:#e10600; box-shadow:0 12px 28px rgba(225,6,0,.28); }
+.sports-store-content .section-tag { margin-bottom:7px; color:#ff5a55; }
+.sports-store-content h2 { font-family:"Oswald",sans-serif; font-size:clamp(30px,4vw,48px); line-height:1.08; text-transform:uppercase; margin-bottom:12px; }
+.sports-store-content h2 span { color:#ff241d; }
+.sports-store-content > p { max-width:760px; color:#d8d8d8; font-size:14px; line-height:1.7; }
+.sports-store-points { display:flex; flex-wrap:wrap; gap:12px 22px; margin-top:16px; font-weight:700; font-size:13px; }
+.sports-store-points i { color:#ff241d; margin-right:5px; }
+.sports-store-btn { background:#fff; color:#121212; white-space:nowrap; }
+.sports-store-btn:hover { background:#e10600; color:#fff; }
+
+.membership-specials { width:min(1120px,90%); margin:28px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.special-price-card { display:flex; align-items:center; gap:16px; padding:22px 24px; background:#121212; color:#fff; border-radius:12px; border-left:5px solid #e10600; box-shadow:0 10px 25px rgba(0,0,0,.08); }
+.special-price-card > i { width:52px; height:52px; display:grid; place-items:center; flex-shrink:0; border-radius:50%; background:#e10600; font-size:21px; }
+.special-price-card h3 { margin:0 0 4px; font-size:18px; }
+.special-price-card p { margin:0; color:#cfcfcf; font-size:13px; }
+.special-price-card strong { margin-left:auto; color:#fff; font-size:24px; white-space:nowrap; }
+.special-price-card small { color:#ffb0ad; font-size:12px; }
+
+/* Keep content from becoming too wide on laptops */
+@media (max-width: 1180px) {
+    .nav-container { width:min(1180px,94%); gap:16px; }
+    .nav-links { gap:18px; }
+    .nav-links a { font-size:11px; }
+    .nav-actions { gap:12px; }
+    .nav-btn { padding:13px 14px; }
+    .hero { min-height:650px; }
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+    .nav-container { min-height:76px; position:relative; }
+    .logo { width:86px; }
+    .logo img { height:66px; }
+    .mobile-menu-btn { display:block; margin-left:auto; z-index:1101; }
+    .nav-links { position:absolute; left:0; right:0; top:100%; background:#fff; display:flex; flex-direction:column; align-items:stretch; gap:0; max-height:0; overflow:hidden; opacity:0; visibility:hidden; border-top:1px solid #eee; box-shadow:0 14px 24px rgba(0,0,0,.10); transition:max-height .35s ease, opacity .25s ease; }
+    .nav-links.open { max-height:650px; opacity:1; visibility:visible; }
+    .nav-links a { padding:15px 24px; font-size:13px; border-bottom:1px solid #f1f1f1; }
+    .nav-links a::after { display:none; }
+    .nav-actions { display:none; }
+    .hero-container, .about-container, .trainer-container { grid-template-columns:1fr; gap:35px; }
+    .hero { min-height:auto; padding:50px 0 35px; background-position:center; }
+    .hero-content { padding:25px 0 10px; }
+    .hero-logo { display:none; }
+    .hero-socials { right:16px; top:auto; bottom:18px; transform:none; flex-direction:row; }
+    .quick-info-container { grid-template-columns:repeat(2,1fr); }
+    .info-box:nth-child(2) { border-right:none; }
+    .info-box:nth-child(-n+2) { border-bottom:1px solid #e5e5e5; }
+    .features-grid, .services-grid { grid-template-columns:repeat(2,1fr); }
+    .sports-store-container { grid-template-columns:auto 1fr; }
+    .sports-store-btn { grid-column:2; justify-self:start; }
+    .membership-container { grid-template-columns:repeat(2,1fr) !important; }
+    .gallery-grid { grid-template-columns:repeat(2,1fr) !important; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    html { scroll-behavior:smooth; }
+    body { overflow-x:hidden; }
+    .section-padding { padding:64px 0; }
+    .container { width:90%; }
+    .navbar { position:sticky; }
+    .nav-container { width:92%; min-height:68px; }
+    .logo { width:72px; }
+    .logo img { height:58px; }
+    .mobile-menu-btn { width:44px; height:44px; }
+    .nav-links a { padding:14px 20px; }
+
+    .hero { min-height:590px; padding:35px 0 85px; background-position:center center; }
+    .hero-container { width:88%; }
+    .hero-small-text { font-size:12px; letter-spacing:6px; margin-bottom:16px; }
+    .hero-small-text::after { width:42px; margin-left:10px; }
+    .rudra-name { font-size:clamp(68px,23vw,110px); letter-spacing:-2px; }
+    .fitness-name { font-size:clamp(37px,11vw,58px); margin-top:8px; }
+    .hero-line { font-size:10px; letter-spacing:1.7px; gap:7px; margin-bottom:20px; padding-top:14px; }
+    .hero-description { font-size:16px; margin-bottom:24px; }
+    .hero-buttons { gap:10px; }
+    .hero-buttons .btn { width:100%; min-width:0; padding:13px 15px; font-size:12px; }
+    .hero-socials { left:50%; right:auto; transform:translateX(-50%); bottom:20px; }
+    .hero-socials a { width:44px; height:44px; font-size:18px; }
+
+    .quick-info-container { width:92%; grid-template-columns:1fr; }
+    .info-box, .info-box:nth-child(2) { border-right:none; border-bottom:1px solid #e5e5e5; padding:20px 8px; }
+    .info-box:last-child { border-bottom:none; }
+    .info-icon { width:48px; height:48px; font-size:19px; }
+
+    .section-heading { margin-bottom:34px; }
+    .section-heading h2, .about-content h2, .trainer-content h2, .trial-content h2, .ladies-container h2 { font-size:36px; }
+    .about-container, .trainer-container { gap:30px; }
+    .about-image-box img { height:auto !important; min-height:0; }
+    .image-badge { left:14px; right:14px; bottom:-12px; justify-content:center; }
+    .features-grid, .services-grid, .membership-container, .gallery-grid, .testimonials-container { grid-template-columns:1fr !important; }
+    .feature-card, .service-card { padding:28px 22px; }
+
+    .sports-store-section { padding:34px 0; }
+    .sports-store-container { width:90%; grid-template-columns:1fr; gap:18px; }
+    .sports-store-icon { width:64px; height:64px; font-size:27px; border-radius:14px; }
+    .sports-store-content h2 { font-size:34px; }
+    .sports-store-content > p { font-size:13px; }
+    .sports-store-points { flex-direction:column; gap:10px; }
+    .sports-store-btn { grid-column:auto; width:100%; }
+
+    .ladies-batch { padding:70px 0; background-position:center; }
+    .ladies-container { width:90%; margin:auto; }
+    .trainer-section { padding:65px 0; }
+    .trainer-image img { max-height:430px; object-fit:cover; }
+    .membership-header, .gallery-header, .testimonials-header { width:90%; }
+    .membership-specials { width:90%; grid-template-columns:1fr; }
+    .special-price-card { padding:18px; align-items:flex-start; flex-wrap:wrap; }
+    .special-price-card strong { width:100%; margin-left:68px; font-size:22px; }
+    .free-trial-box { width:90% !important; flex-direction:column; align-items:stretch; gap:18px; }
+    .trial-btn { text-align:center; }
+    .contact-wrapper { width:90% !important; }
+    .contact-card { padding:26px 18px !important; }
+    .contact-buttons { flex-direction:column; }
+    .contact-buttons a { width:100%; justify-content:center; }
+    .working-hours .hours-row { gap:12px; align-items:flex-start; }
+    .working-hours .hours-row strong { text-align:right; }
+    footer { padding-top:45px; }
+    .footer-container { flex-direction:column; align-items:flex-start; gap:24px; }
+    .footer-links { flex-wrap:wrap; gap:14px !important; }
+    .floating-whatsapp { width:52px; height:52px; right:16px; bottom:16px; }
+}
+
+@media (max-width: 380px) {
+    .rudra-name { font-size:62px; }
+    .fitness-name { font-size:34px; }
+    .hero-small-text { letter-spacing:4px; }
+    .section-heading h2, .about-content h2, .trainer-content h2, .trial-content h2, .ladies-container h2 { font-size:31px; }
+}
+
+
+/* =========================================================
+   FINAL RESPONSIVE POLISH - MOBILE + LAPTOP
+========================================================= */
+
+.trainer-education {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 18px 0 22px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff, #f4f4f4);
+    border: 1px solid #ececec;
+    border-left: 4px solid #E10600;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+.education-icon {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #E10600;
+    color: #fff;
+    font-size: 19px;
+}
+
+.trainer-education div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.trainer-education span {
+    color: #777;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+}
+
+.trainer-education strong {
+    color: #1a1a1a;
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+/* Keep the desktop navigation compact and readable. */
+@media (min-width: 981px) and (max-width: 1250px) {
+    .nav-container { width: 96%; gap: 12px; }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 10px; }
+    .nav-contact span { font-size: 13px; }
+    .nav-btn { padding: 12px 14px; }
+}
+
+/* Mobile navigation: always visible above the dropdown and easy to tap. */
+@media (max-width: 980px) {
+    .navbar { overflow: visible; }
+    .nav-container { overflow: visible; }
+    .mobile-menu-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        position: relative;
+        z-index: 1202;
+        background: #f4f4f4;
+        border: 1px solid #e2e2e2;
+    }
+    .mobile-menu-btn span { margin: 3px auto; }
+    .nav-links {
+        z-index: 1200;
+        width: 100%;
+        border-radius: 0 0 14px 14px;
+    }
+    .nav-links.open { max-height: 620px; }
+}
+
+@media (max-width: 640px) {
+    /* Header */
+    .navbar { position: sticky; top: 0; }
+    .nav-container { width: 94%; min-height: 64px; }
+    .logo { width: 66px; }
+    .logo img { height: 54px; }
+    .mobile-menu-btn { width: 42px; height: 42px; }
+    .nav-links a { font-size: 12px; padding: 14px 20px; }
+
+    /* Hero: readable without overflowing on small phones */
+    .hero { min-height: 560px; padding: 32px 0 90px; }
+    .hero-container { width: 90%; }
+    .hero-title { line-height: .95; }
+    .rudra-name { font-size: clamp(60px, 20vw, 94px); }
+    .fitness-name { font-size: clamp(31px, 9.8vw, 48px); }
+    .hero-description { max-width: 330px; }
+    .hero-buttons { flex-direction: column; width: min(100%, 320px); }
+    .hero-buttons .btn { width: 100%; }
+    .hero-socials { gap: 10px; }
+
+    /* Content cards */
+    .feature-card, .service-card, .membership-card, .testimonial-card { border-radius: 14px; }
+    .section-heading h2, .about-content h2, .trainer-content h2,
+    .trial-content h2, .ladies-container h2 { line-height: 1.05; }
+
+    /* Gallery images */
+    .gallery-item img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+
+    /* Sports material section gets stronger visual focus on mobile */
+    .sports-store-section { padding: 42px 0; }
+    .sports-store-container {
+        padding: 22px;
+        border-radius: 18px;
+        background: linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.01));
+        border: 1px solid rgba(255,255,255,.12);
+    }
+    .sports-store-content h2 { font-size: clamp(30px, 9vw, 40px); }
+
+    /* Trainer qualification */
+    .trainer-education { width: 100%; padding: 13px 14px; margin: 16px 0 20px; }
+    .trainer-education strong { font-size: 14px; }
+
+    /* Contact + footer spacing */
+    .contact-wrapper, .free-trial-box, .membership-specials { width: 92% !important; }
+}
+
+@media (max-width: 420px) {
+    .hero-small-text { letter-spacing: 4px; }
+    .hero-line { letter-spacing: 1px; font-size: 9px; }
+    .hero-description { font-size: 15px; }
+    .trainer-education span { font-size: 9px; letter-spacing: .8px; }
+    .special-price-card strong { margin-left: 0; }
+}

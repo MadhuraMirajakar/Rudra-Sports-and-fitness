@@ -1,225 +1,87 @@
-// =========================================
-// RUDRA SPORTS & FITNESS
-// JAVASCRIPT
-// =========================================
+// RUDRA SPORTS & FITNESS - WEBSITE JAVASCRIPT
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Mobile navigation
+    const menuButton = document.querySelector(".mobile-menu-btn");
+    const navMenu = document.querySelector(".nav-links");
 
-// =========================================
-// FREE TRIAL FORM
-// =========================================
+    if (menuButton && navMenu) {
+        menuButton.addEventListener("click", function () {
+            const isOpen = navMenu.classList.toggle("open");
+            menuButton.classList.toggle("active", isOpen);
+            menuButton.setAttribute("aria-expanded", String(isOpen));
+        });
 
-const trialForm = document.querySelector(".trial-form");
-
-trialForm.addEventListener("submit", function (event) {
-
-    event.preventDefault();
-
-
-    // Get input values
-
-    const name = trialForm.querySelector('input[type="text"]').value;
-
-    const phone = trialForm.querySelector('input[type="tel"]').value;
-
-    const selects = trialForm.querySelectorAll("select");
-
-    const fitnessGoal = selects[0].value;
-
-    const preferredTiming = selects[1].value;
-
-
-    // WhatsApp message
-
-    const message =
-        `Hello, I would like to book a FREE TRIAL at Rudra Sports & Fitness.%0A%0A` +
-        `Name: ${name}%0A` +
-        `Phone: ${phone}%0A` +
-        `Fitness Goal: ${fitnessGoal}%0A` +
-        `Preferred Timing: ${preferredTiming}`;
-
-
-    // Gym WhatsApp number
-
-    const whatsappNumber = "919343251500";
-
-
-    // Open WhatsApp
-
-    window.open(
-        `https://wa.me/${whatsappNumber}?text=${message}`,
-        "_blank"
-    );
-
-
-    // Reset form
-
-    trialForm.reset();
-
-});
-
-
-
-// =========================================
-// FEEDBACK FORM
-// =========================================
-
-const feedbackForm = document.querySelector(".feedback-form");
-
-feedbackForm.addEventListener("submit", function (event) {
-
-    event.preventDefault();
-
-
-    const name = feedbackForm.querySelector('input[type="text"]').value;
-
-    const rating = feedbackForm.querySelector("select").value;
-
-    const feedback = feedbackForm.querySelector("textarea").value;
-
-
-    // Success message
-
-    alert(
-        `Thank you, ${name}! 😊\n\n` +
-        `Your rating: ${rating}\n\n` +
-        `Thank you for sharing your feedback with Rudra Sports & Fitness.`
-    );
-
-
-    // Reset form
-
-    feedbackForm.reset();
-
-});
-
-
-
-// =========================================
-// NAVBAR SCROLL EFFECT
-// =========================================
-
-const navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", function () {
-
-    if (window.scrollY > 50) {
-
-        navbar.style.boxShadow =
-            "0 5px 20px rgba(0, 0, 0, 0.08)";
-
-    } else {
-
-        navbar.style.boxShadow = "none";
-
+        navMenu.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navMenu.classList.remove("open");
+                menuButton.classList.remove("active");
+                menuButton.setAttribute("aria-expanded", "false");
+            });
+        });
     }
 
-});
+    // Free trial form
+    const trialForm = document.querySelector(".trial-form");
+    if (trialForm) {
+        trialForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const name = trialForm.querySelector('input[type="text"]').value;
+            const phone = trialForm.querySelector('input[type="tel"]').value;
+            const selects = trialForm.querySelectorAll("select");
+            const fitnessGoal = selects[0] ? selects[0].value : "";
+            const preferredTiming = selects[1] ? selects[1].value : "";
+            const message = `Hello, I would like to book a FREE TRIAL at Rudra Sports & Fitness.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AFitness Goal: ${encodeURIComponent(fitnessGoal)}%0APreferred Timing: ${encodeURIComponent(preferredTiming)}`;
+            window.open(`https://wa.me/919343251500?text=${message}`, "_blank");
+            trialForm.reset();
+        });
+    }
 
+    // Feedback form
+    const feedbackForm = document.querySelector(".feedback-form");
+    if (feedbackForm) {
+        feedbackForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const name = feedbackForm.querySelector('input[type="text"]').value;
+            const rating = feedbackForm.querySelector("select").value;
+            alert(`Thank you, ${name}! 😊\n\nYour rating: ${rating}\n\nThank you for sharing your feedback with Rudra Sports & Fitness.`);
+            feedbackForm.reset();
+        });
+    }
 
-
-// =========================================
-// SCROLL REVEAL ANIMATION
-// =========================================
-
-const revealElements = document.querySelectorAll(
-    ".feature-card, .service-card, .pricing-card, .testimonial-card, .gallery-item"
-);
-
-
-const revealOnScroll = function () {
-
-    revealElements.forEach(function (element) {
-
-        const windowHeight = window.innerHeight;
-
-        const elementTop =
-            element.getBoundingClientRect().top;
-
-
-        if (elementTop < windowHeight - 80) {
-
-            element.style.opacity = "1";
-
-            element.style.transform =
-                "translateY(0)";
-
-        }
-
+    // Navbar shadow
+    const navbar = document.querySelector(".navbar");
+    window.addEventListener("scroll", function () {
+        if (navbar) navbar.style.boxShadow = window.scrollY > 50 ? "0 5px 20px rgba(0, 0, 0, 0.08)" : "none";
     });
 
-};
-
-
-// Initial style
-
-revealElements.forEach(function (element) {
-
-    element.style.opacity = "0";
-
-    element.style.transform =
-        "translateY(30px)";
-
-    element.style.transition =
-        "opacity 0.6s ease, transform 0.6s ease";
-
-});
-
-
-// Listen for scroll
-
-window.addEventListener(
-    "scroll",
-    revealOnScroll
-);
-
-
-// Run once when page loads
-
-revealOnScroll();
-
-
-
-// =========================================
-// SMOOTH SCROLL
-// =========================================
-
-const navLinks = document.querySelectorAll(
-    'a[href^="#"]'
-);
-
-
-navLinks.forEach(function (link) {
-
-    link.addEventListener(
-        "click",
-        function (event) {
-
-            const targetId =
-                this.getAttribute("href");
-
-
-            const target =
-                document.querySelector(targetId);
-
-
-            if (target) {
-
-                event.preventDefault();
-
-
-                window.scrollTo({
-
-                    top:
-                        target.offsetTop - 70,
-
-                    behavior: "smooth"
-
-                });
-
+    // Scroll reveal
+    const revealElements = document.querySelectorAll(".feature-card, .service-card, .membership-card, .testimonial-card, .gallery-item, .sports-store-section");
+    revealElements.forEach(function (element) {
+        element.style.opacity = "0";
+        element.style.transform = "translateY(30px)";
+        element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    });
+    const revealOnScroll = function () {
+        revealElements.forEach(function (element) {
+            if (element.getBoundingClientRect().top < window.innerHeight - 80) {
+                element.style.opacity = "1";
+                element.style.transform = "translateY(0)";
             }
+        });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
 
-        }
-
-    );
-
+    // Smooth scrolling with mobile-friendly header offset
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+                event.preventDefault();
+                const offset = navbar ? navbar.offsetHeight + 8 : 70;
+                window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: "smooth" });
+            }
+        });
+    });
 });
